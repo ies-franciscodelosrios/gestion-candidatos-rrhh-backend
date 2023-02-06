@@ -12,9 +12,13 @@ namespace IGapi.Models
         public DateTime Entry_Date { get; set; }
         public DateTime Assignment_Date { get; set; }
         public byte[]? Technical_Test { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public bool IsAccepted { get; set; }
+        [ForeignKey("Id_Candidate")]
         public int Id_Candidate { get; set; }
+        public virtual CandidateModel Candidate { get; set; }
+        [ForeignKey("id_Oferta")]
         public int Id_Oferta { get; set; }
+        public virtual OfferModel Offer { get; set; }
     }
 }

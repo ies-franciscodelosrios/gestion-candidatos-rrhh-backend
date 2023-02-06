@@ -17,7 +17,8 @@ namespace IGapi.Models
         public DateTime Creation_Date { get; set; }
         public DateTime Close_Date { get; set; }
         public bool IsOpen { get; set; }
-        public int Id_Selected { get; set; }
-        public int Id_Offer { get; set; }
+        [ForeignKey("Id_Selected")]
+        public int? Id_Selected { get; set; }
+        public virtual CandidateModel? Candidate { get; set; }
     }
 }

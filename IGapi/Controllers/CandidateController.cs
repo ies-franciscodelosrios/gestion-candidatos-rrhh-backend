@@ -18,13 +18,13 @@ namespace IGapi.Controllers
             this.candidateServ = candidateServ;
         }
 
-        [HttpGet(Name = "GetCandidates")]
-        public List<CandidateModel> GetAll() 
+        [HttpGet("GetAll")]
+        public List<CandidateDto> GetAll() 
         {
             return candidateServ.GetCandidates();
         }
 
-        [HttpPost]
+        [HttpPost("Insert")]
         public bool Insert([FromBody] CandidateDto candidate)
         {
             return candidateServ.Insert(candidate);

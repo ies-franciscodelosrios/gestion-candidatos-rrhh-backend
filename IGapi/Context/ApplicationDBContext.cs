@@ -13,12 +13,5 @@ namespace IGapi.Context
         public DbSet<AdminModel> Admins { get; set; }
         public DbSet<OfferModel> Offers { get; set; }
         public DbSet<Offer_ApplicationModel> Orders { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<CandidateModel>()
-                .Property(p => p.Birthdate)
-                .HasColumnType("Date");
-        }
     }
 }

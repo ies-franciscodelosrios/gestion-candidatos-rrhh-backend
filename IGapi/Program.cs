@@ -15,6 +15,10 @@ builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlSer
 builder.Services.AddScoped<CandidateRepository>();
 builder.Services.AddScoped<CandidateService>();
 builder.Services.AddScoped<CandidateController>();
+builder.Services.AddScoped<Offer_ApplicationRepository>();
+builder.Services.AddScoped<Offer_ApplicationService>();
+builder.Services.AddScoped<Offer_ApplicationController>();
+
 
 
 

@@ -13,12 +13,11 @@ namespace IGapi.Services
             this.candidateRepo = candidateRepo;
         }
 
-        public List<CandidateModel> GetCandidates()
+        public List<CandidateDto> GetCandidates()
         {
-            //List<CandidateDto> candidates = new List<CandidateDto>();
-            //candidates = candidateRepo.GetCandidates().Select(C => C.ParseToDto()).ToList();
-            //return candidates;
-            return candidateRepo.GetCandidates();
+            List<CandidateDto> candidates = new List<CandidateDto>();
+            candidates = candidateRepo.GetCandidates().Select(C => C.ParseToDto()).ToList();
+            return candidates;
         }
 
         public bool Insert(CandidateDto candidate)
