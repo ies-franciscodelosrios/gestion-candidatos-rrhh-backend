@@ -1,4 +1,5 @@
 ﻿using IGapi.Models;
+using System.ComponentModel;
 
 namespace IGapi.Dtos
 {
@@ -9,6 +10,7 @@ namespace IGapi.Dtos
         public DateTime Assignment_Date { get; set; }
         public IFormFile? Technical_Test { get; set; }
         public string? Description { get; set; }
+        [DefaultValue("false")]
         public bool IsAccepted { get; set; }
         public int Id_Candidate { get; set; }
         public virtual CandidateDto? Candidate { get; set; }

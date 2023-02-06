@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using IGapi.Dtos;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IGapi.Models
@@ -17,8 +19,20 @@ namespace IGapi.Models
         public DateTime Creation_Date { get; set; }
         public DateTime Close_Date { get; set; }
         public bool IsOpen { get; set; }
-        [ForeignKey("Id_Selected")]
-        public int? Id_Selected { get; set; }
-        public virtual CandidateModel? Candidate { get; set; }
+
+        public OfferDto ParseToDto()
+        {
+            return new OfferDto() 
+            {   
+                Id=Id,
+                Tittle = Tittle,
+                Description = Description,
+                Office = Office,
+                Project = Project,
+                Creation_Date = Creation_Date,
+                Close_Date = Close_Date,
+                IsOpen = IsOpen 
+            };
+        }
     }
 }

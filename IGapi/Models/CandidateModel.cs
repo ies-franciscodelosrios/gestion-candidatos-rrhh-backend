@@ -24,12 +24,10 @@ namespace IGapi.Models
         public string Mail { get; set; }
         [Required]
         public string Password { get; set; }
-        [DefaultValue("false")]
-        public bool IsAccepted { get; set; }
 
         public CandidateDto ParseToDto()
         {
-            return new CandidateDto { Id = Id, Name = Name, Dni = Dni, Gender = Gender, Birthdate = Birthdate, Mail = Mail, Password = Password, IsAccepted = IsAccepted };
+            return new CandidateDto { Id = Id, Name = Name, Dni = Dni, Gender = Gender, Birthdate = Birthdate, Mail = Mail, Password = Password };
         }
     }
 }

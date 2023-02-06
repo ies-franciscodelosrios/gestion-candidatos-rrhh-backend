@@ -3916,11 +3916,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Antonio J\\source\\repos\\IGapi\\IGapi\\IGapi.csproj",
+      "projectUniqueName": "C:\\Users\\Antonio J\\Source\\Repos\\IG_RRHH\\IGapi\\IGapi.csproj",
       "projectName": "IGapi",
-      "projectPath": "C:\\Users\\Antonio J\\source\\repos\\IGapi\\IGapi\\IGapi.csproj",
+      "projectPath": "C:\\Users\\Antonio J\\Source\\Repos\\IG_RRHH\\IGapi\\IGapi.csproj",
       "packagesPath": "C:\\Users\\Antonio J\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Antonio J\\source\\repos\\IGapi\\IGapi\\obj\\",
+      "outputPath": "C:\\Users\\Antonio J\\Source\\Repos\\IG_RRHH\\IGapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Antonio J\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -21,8 +21,6 @@ namespace IGapi.Dtos
         public string Mail { get; set; }
         [Required]
         public string Password { get; set; }
-        [DefaultValue("false")]
-        public bool IsAccepted { get; set; }
 
         public CandidateModel ParseToModel()
         {

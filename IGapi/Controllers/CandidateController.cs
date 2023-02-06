@@ -7,7 +7,7 @@ namespace IGapi.Controllers
 {
 
     [ApiController]
-    [Route("Candidates")]
+    [Route("[controller]")]
     public class CandidateController : ControllerBase
     {
 
