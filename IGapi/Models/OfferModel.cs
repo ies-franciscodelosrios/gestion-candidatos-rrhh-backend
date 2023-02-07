@@ -18,6 +18,8 @@ namespace IGapi.Models
         public string Project { get; set; }
         public DateTime Creation_Date { get; set; }
         public DateTime Close_Date { get; set; }
+
+        [DefaultValue("false")]
         public bool IsOpen { get; set; }
 
         public OfferDto ParseToDto()

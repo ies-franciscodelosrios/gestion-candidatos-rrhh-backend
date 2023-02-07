@@ -23,7 +23,7 @@ namespace IGapi.Repositories
                     return true;
                 }catch(Exception ex)
                 {
-                    throw;
+                    return false;
                 }
             }
             return false;
@@ -34,6 +34,35 @@ namespace IGapi.Repositories
             var list = new List<OfferModel>();
             list = db.Offers.ToList();
             return list;
+        }
+
+        public bool Delete(int id)
+        {
+            if (db.Offers.FirstOrDefault(c => c.Id == id) != null)
+            {
+                try
+                {
+                    db.Offers.Remove(db.Offers.FirstOrDefault(c => c.Id == id));
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public OfferModel GetById(int id)
+        {
+            var aux = new OfferModel();
+            if (db.Offers.FirstOrDefault(c => c.Id == id) != null)
+            {
+                aux = db.Offers.FirstOrDefault(c => c.Id == id);
+            }
+            return aux;
+
         }
     }
 }

@@ -14,9 +14,5 @@ namespace IGapi.Dtos
         public string Mail { get; set; }
         public string Password { get; set; }
 
-        public AdminModel ParseToModel()
-        {
-            return new AdminModel { Id = Id, Name = Name, Gender = Gender, Dni = Dni, Birthdate = Birthdate, Mail = Mail, Password = Password };
-        }
     }
 }

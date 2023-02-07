@@ -25,6 +25,16 @@ namespace IGapi.Services
             return candidateRepo.Insert(candidate.ParseToModel());
         }
 
+        public bool Delete(int id)
+        {
+            return candidateRepo.Delete(id);
+        }
+
+        public CandidateDto GetCandidate(int id)
+        {
+            return candidateRepo.GetbyId(id).ParseToDto();
+        }
+
 
     }
 }

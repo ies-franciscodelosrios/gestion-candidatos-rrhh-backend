@@ -150,3 +150,9 @@ C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\obj\Debug\net7.0\refint\IGapi.dll
 C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\obj\Debug\net7.0\IGapi.pdb
 C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\obj\Debug\net7.0\IGapi.genruntimeconfig.cache
 C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\obj\Debug\net7.0\ref\IGapi.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Web.Cors.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Web.Http.Cors.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

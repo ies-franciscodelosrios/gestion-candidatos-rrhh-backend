@@ -16,7 +16,7 @@ namespace IGapi.Controllers
         }
 
         [HttpPost]
-        public bool Insert([FromForm]Offer_ApplicationDto offer_ApplicationDto)
+        public bool Insert(Offer_ApplicationDto offer_ApplicationDto)
         {
             return offer_ApplicationSer.Insert(offer_ApplicationDto);
         }

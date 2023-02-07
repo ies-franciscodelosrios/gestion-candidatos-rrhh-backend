@@ -4,6 +4,7 @@ using IGapi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IGapi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230207095941_Nuevas-Relaciones")]
+    partial class NuevasRelaciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +58,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins", (string)null);
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("IGapi.Models.CandidateModel", b =>
@@ -91,7 +94,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Candidates", (string)null);
+                    b.ToTable("Candidates");
                 });
 
             modelBuilder.Entity("IGapi.Models.OfferModel", b =>
@@ -129,7 +132,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Offer", (string)null);
+                    b.ToTable("Offer");
                 });
 
             modelBuilder.Entity("IGapi.Models.Offer_ApplicationModel", b =>
@@ -173,7 +176,7 @@ namespace IGapi.Migrations
 
                     b.HasIndex("OfferId");
 
-                    b.ToTable("Offer_Application", (string)null);
+                    b.ToTable("Offer_Application");
                 });
 
             modelBuilder.Entity("IGapi.Models.Offer_ApplicationModel", b =>

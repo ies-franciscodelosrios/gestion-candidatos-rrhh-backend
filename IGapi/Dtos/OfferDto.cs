@@ -1,4 +1,5 @@
 ﻿using IGapi.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace IGapi.Dtos
@@ -16,6 +17,22 @@ namespace IGapi.Dtos
         public string Project { get; set; }
         public DateTime Creation_Date { get; set; }
         public DateTime Close_Date { get; set; }
+        [DefaultValue("false")]
         public bool IsOpen { get; set; }
+
+        public OfferModel ParseToModel() 
+        {
+            return new OfferModel() 
+            {
+                Id = Id,
+                Tittle = Tittle,
+                Description = Description,
+                Office = Office,
+                Project = Project,
+                Close_Date = Close_Date,
+                Creation_Date = Creation_Date,
+                IsOpen = IsOpen
+            };
+        }
     }
 }

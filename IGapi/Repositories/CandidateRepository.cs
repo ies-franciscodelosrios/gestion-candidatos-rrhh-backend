@@ -33,5 +33,34 @@ namespace IGapi.Repositories
             }
             return false;
         }
+        
+        public bool Delete(int id)
+        {
+            if (db.Candidates.FirstOrDefault(c => c.Id == id) != null)
+            {
+                try
+                {
+                    db.Candidates.Remove(db.Candidates.FirstOrDefault(c => c.Id == id));
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public CandidateModel GetbyId(int id)
+        {
+            var aux = new CandidateModel();
+            if(db.Candidates.FirstOrDefault(c => c.Id == id)!=null)
+            {
+                aux = db.Candidates.FirstOrDefault(c => c.Id == id);
+            }
+            return aux;
+
+        }
     }
 }

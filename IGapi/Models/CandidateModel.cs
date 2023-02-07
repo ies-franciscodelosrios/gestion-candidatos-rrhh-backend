@@ -27,7 +27,15 @@ namespace IGapi.Models
 
         public CandidateDto ParseToDto()
         {
-            return new CandidateDto { Id = Id, Name = Name, Dni = Dni, Gender = Gender, Birthdate = Birthdate, Mail = Mail, Password = Password };
+            return new CandidateDto 
+            {   Id = Id,
+                Name = Name,
+                Dni = Dni,
+                Gender = Gender,
+                Birthdate = Birthdate,
+                Mail = Mail,
+                Password = Password 
+            };
         }
     }
 }

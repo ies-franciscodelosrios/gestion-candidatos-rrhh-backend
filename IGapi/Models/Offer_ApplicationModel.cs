@@ -18,18 +18,18 @@ namespace IGapi.Models
         [DefaultValue("false")]
         public bool IsAccepted { get; set; }
         [ForeignKey("Id_Candidate")]
-        public int Id_Candidate { get; set; }
-        public virtual CandidateModel Candidate { get; set; }
+        public int? Id_Candidate { get; set; }
+        public virtual CandidateModel? Candidate { get; set; }
         [ForeignKey("id_Oferta")]
-        public int Id_Oferta { get; set; }
-        public virtual OfferModel Offer { get; set; }
+        public int? Id_Oferta { get; set; }
+        public virtual OfferModel? Offer { get; set; }
 
 
         public Offer_ApplicationDto ParseToDto()
         {
             return new Offer_ApplicationDto()
             {
-                Id = Id_Candidate,
+                Id = Id,
                 Entry_Date = Entry_Date,
                 Assignment_Date = Assignment_Date,
                 Description= Description,

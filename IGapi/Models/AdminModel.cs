@@ -16,10 +16,5 @@ namespace IGapi.Models
         public DateTime Birthdate  { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
-
-        public AdminDto ParseToDto()
-        {
-            return new AdminDto { Id = Id, Name = Name, Gender = Gender, Dni = Dni, Birthdate = Birthdate, Mail = Mail, Password = Password };
-        }
     }
 }

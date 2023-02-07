@@ -24,10 +24,24 @@ namespace IGapi.Controllers
             return candidateServ.GetCandidates();
         }
 
+        [HttpGet("GetById/{id}")]
+        public CandidateDto GetCandidate(int id)
+        {
+            return candidateServ.GetCandidate(id);
+        }
+
         [HttpPost("Insert")]
         public bool Insert([FromBody] CandidateDto candidate)
         {
             return candidateServ.Insert(candidate);
         }
+
+        [HttpDelete("Delete/{id}")]
+        public bool Delete(int id)
+        {
+            return candidateServ.Delete(id);
+        }
+
+
     }
 }
