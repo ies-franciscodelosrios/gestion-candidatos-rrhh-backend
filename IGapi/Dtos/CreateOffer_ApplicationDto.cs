@@ -1,9 +1,8 @@
-﻿using IGapi.Models;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace IGapi.Dtos
 {
-    public class Offer_ApplicationDto
+    public class CreateOffer_ApplicationDto
     {
         public int Id { get; set; }
         public DateTime Entry_Date { get; set; }
@@ -11,9 +10,7 @@ namespace IGapi.Dtos
         public string? Description { get; set; }
         [DefaultValue("false")]
         public bool IsAccepted { get; set; }
-        public virtual CandidateDto? Candidate { get; set; }
-        public virtual OfferDto? Offer { get; set; }
-
-
+        public int? Candidate_id { get; set; }
+        public int Offer_id { get; set; }
     }
 }

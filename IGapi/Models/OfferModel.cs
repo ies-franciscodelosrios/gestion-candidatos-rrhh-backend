@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace IGapi.Models
 {
 
-    [Table("Offer")]
+    [Table("OfertasdeTrabajo")]
     public class OfferModel
     {
         [Key]

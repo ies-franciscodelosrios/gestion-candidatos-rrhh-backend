@@ -11,7 +11,7 @@ namespace IGapi.Context
 
         public DbSet<CandidateModel> Candidates { get; set; }
         public DbSet<AdminModel> Admins { get; set; }
-        public DbSet<OfferModel> Offers { get; set; }
+        public DbSet<OfferModel> OfertasdeTrabajo { get; set; }
         public DbSet<Offer_ApplicationModel> Orders { get; set; }
     }
 }

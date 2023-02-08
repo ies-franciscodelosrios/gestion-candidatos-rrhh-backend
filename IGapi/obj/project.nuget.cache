@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RGoXNt1b2JtQTSi8TlLNgt+vbvfd/SuXNKUMISpRbXyY5Ts97Yf1WOyvtysfvUdL9VsMqxbPGikZ9RgYJutQXw==",
+  "dgSpecHash": "k9QSouKOG7ESI+SYbh+XrQn1oIoS2jOw0pSd1aCcLeSwPUEepxczAPmC+qjj252DIcBagM8cVkUEBxRq8oGkMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Antonio J\\source\\repos\\IGapi\\IGapi\\IGapi.csproj",
+  "projectFilePath": "C:\\Users\\Antonio J\\source\\repos\\IG_RRHH\\IGapi\\IGapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Antonio J\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Antonio J\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

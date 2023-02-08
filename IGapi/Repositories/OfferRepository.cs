@@ -14,17 +14,10 @@ namespace IGapi.Repositories
 
         public bool Insert(OfferModel offer)
         {
-            if (offer != null) 
+            if(db.OfertasdeTrabajo.Add(offer) != null)
             {
-                try
-                {
-                    db.Offers.Add(offer);
-                    db.SaveChanges();
-                    return true;
-                }catch(Exception ex)
-                {
-                    return false;
-                }
+                db.SaveChanges();
+                return true;
             }
             return false;
         }
@@ -32,17 +25,17 @@ namespace IGapi.Repositories
         public List<OfferModel> GetAll()
         {
             var list = new List<OfferModel>();
-            list = db.Offers.ToList();
+            list = db.OfertasdeTrabajo.ToList();
             return list;
         }
 
         public bool Delete(int id)
         {
-            if (db.Offers.FirstOrDefault(c => c.Id == id) != null)
+            if (db.OfertasdeTrabajo.FirstOrDefault(c => c.Id == id) != null)
             {
                 try
                 {
-                    db.Offers.Remove(db.Offers.FirstOrDefault(c => c.Id == id));
+                    db.OfertasdeTrabajo.Remove(db.OfertasdeTrabajo.FirstOrDefault(c => c.Id == id));
                     db.SaveChanges();
                     return true;
                 }
@@ -57,9 +50,9 @@ namespace IGapi.Repositories
         public OfferModel GetById(int id)
         {
             var aux = new OfferModel();
-            if (db.Offers.FirstOrDefault(c => c.Id == id) != null)
+            if (db.OfertasdeTrabajo.FirstOrDefault(c => c.Id == id) != null)
             {
-                aux = db.Offers.FirstOrDefault(c => c.Id == id);
+                aux = db.OfertasdeTrabajo.FirstOrDefault(c => c.Id == id);
             }
             return aux;
 

@@ -1,6 +1,7 @@
 ﻿using IGapi.Context;
 using IGapi.Dtos;
 using IGapi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace IGapi.Repositories
 {
@@ -31,7 +32,7 @@ namespace IGapi.Repositories
                     return false;
                 } 
             }
-            return false;
+            return false;    
         }
         
         public bool Delete(int id)
@@ -57,10 +58,16 @@ namespace IGapi.Repositories
             var aux = new CandidateModel();
             if(db.Candidates.FirstOrDefault(c => c.Id == id)!=null)
             {
+
                 aux = db.Candidates.FirstOrDefault(c => c.Id == id);
             }
             return aux;
 
+        }
+
+        public List<Offer_ApplicationModel> GetListFromId(int id)
+        {
+            return db.Orders.Include(o => o.Candidate).Include(o => o.Offer).Where(o => o.Candidate.Id == id).ToList();
         }
     }
 }

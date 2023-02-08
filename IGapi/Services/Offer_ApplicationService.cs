@@ -1,4 +1,5 @@
-﻿using IGapi.Dtos;
+﻿using IGapi.Context;
+using IGapi.Dtos;
 using IGapi.Models;
 using IGapi.Repositories;
 
@@ -7,13 +8,19 @@ namespace IGapi.Services
     public class Offer_ApplicationService
     {
         private readonly Offer_ApplicationRepository offer_applicationRepo;
+        private readonly OfferRepository offerRepository;
+        private readonly CandidateRepository candidateRepository;
+        private readonly ApplicationDBContext db;
 
-        public Offer_ApplicationService(Offer_ApplicationRepository offer_applicationRepo)
+        public Offer_ApplicationService(Offer_ApplicationRepository offer_applicationRepo, CandidateRepository candidateRepository, OfferRepository offerRepository, ApplicationDBContext applicationDB)
         {
             this.offer_applicationRepo = offer_applicationRepo;
+            this.candidateRepository = candidateRepository;
+            this.offerRepository = offerRepository;
+            db = applicationDB;
         }
 
-        public bool Insert(Offer_ApplicationDto offer_Application)
+        public bool Insert(CreateOffer_ApplicationDto offer_Application)
         {
             if(offer_Application != null)
             {
@@ -22,21 +29,48 @@ namespace IGapi.Services
                     Assignment_Date =   offer_Application.Assignment_Date,
                     Description =       offer_Application.Description,
                     Entry_Date =        offer_Application.Entry_Date,
-                    Id_Candidate =      offer_Application.Id_Candidate,
-                    Id_Oferta =         offer_Application.Id_Oferta,
-                    IsAccepted =        offer_Application.IsAccepted
+                    IsAccepted =        offer_Application.IsAccepted,
+                    Candidate =         db.Candidates.FirstOrDefault(c => c.Id == offer_Application.Candidate_id),//candidateRepository.GetbyId((int)offer_Application.Candidate_id),
+                    Offer =             offerRepository.GetById(offer_Application.Offer_id) 
                 };
-                if(offer_Application.Technical_Test != null ) 
-                {
-                    var ms = new MemoryStream();
-                    offer_Application.Technical_Test.CopyTo(ms);
-                    var fileBytes = ms.ToArray();
-                    aux.Technical_Test = fileBytes;
-                }
                 return offer_applicationRepo.Insert(aux);
             }
             return false;
             
+        }
+
+        public bool Delete(int id)
+        {
+            return offer_applicationRepo.Delete(id);
+        }
+
+        public List<Offer_ApplicationDto> GetAll()
+        {
+            return offer_applicationRepo.GetAll().Select(o => o.ParseToDto()).ToList();
+        }
+
+        public Offer_ApplicationDto GetById(int id)
+        {
+            return offer_applicationRepo.GetById(id).ParseToDto();
+        }
+
+        public bool Insert(CreateOffer_ApplicationDto offer_Application,CandidateDto candidate)
+        {
+            if (offer_Application != null)
+            {
+                var aux = new Offer_ApplicationModel()
+                {
+                    Assignment_Date = offer_Application.Assignment_Date,
+                    Description = offer_Application.Description,
+                    Entry_Date = offer_Application.Entry_Date,
+                    IsAccepted = offer_Application.IsAccepted,
+                    Candidate = candidate.ParseToModel(),//candidateRepository.GetbyId((int)offer_Application.Candidate_id),
+                    Offer = offerRepository.GetById(offer_Application.Offer_id)
+                };
+                return offer_applicationRepo.Insert(aux);
+            }
+            return false;
+
         }
     }
 }

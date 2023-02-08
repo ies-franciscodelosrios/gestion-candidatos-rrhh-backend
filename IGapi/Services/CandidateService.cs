@@ -14,10 +14,8 @@ namespace IGapi.Services
         }
 
         public List<CandidateDto> GetCandidates()
-        {
-            List<CandidateDto> candidates = new List<CandidateDto>();
-            candidates = candidateRepo.GetCandidates().Select(C => C.ParseToDto()).ToList();
-            return candidates;
+        { 
+            return candidateRepo.GetCandidates().Select(C => C.ParseToDto()).ToList();
         }
 
         public bool Insert(CandidateDto candidate)
@@ -32,9 +30,11 @@ namespace IGapi.Services
 
         public CandidateDto GetCandidate(int id)
         {
-            return candidateRepo.GetbyId(id).ParseToDto();
+            var aux = new List<CreateOffer_ApplicationDto>();
+            aux = candidateRepo.GetListFromId(id).Select(c => c.ParseToCreateOfferApplication()).ToList();
+            var candidate = candidateRepo.GetbyId(id).ParseToDto();
+            candidate.Offerings = aux;
+            return candidate;
         }
-
-
     }
 }
