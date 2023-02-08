@@ -12,10 +12,12 @@ namespace IGapi.Controllers
     {
 
         private readonly CandidateService candidateServ;
+        private readonly Offer_ApplicationService offerServ;
 
-        public CandidateController(CandidateService candidateServ)
+        public CandidateController(CandidateService candidateServ, Offer_ApplicationService offerServ)
         {
             this.candidateServ = candidateServ;
+            this.offerServ = offerServ;
         }
 
         [HttpGet("GetAll")]
@@ -33,6 +35,15 @@ namespace IGapi.Controllers
         [HttpPost("Insert")]
         public bool Insert([FromBody] CandidateDto candidate)
         {
+            if(candidate.Offerings!= null)
+            {
+                for(int i=0; i<candidate.Offerings.Count; i++)
+                {
+                    //candidate.Offerings[i].Candidate_id = candidate.Id;
+                    offerServ.Insert(candidate.Offerings[i],candidate);
+
+                }
+            }
             return candidateServ.Insert(candidate);
         }
 

@@ -13,15 +13,12 @@ namespace IGapi.Models
         public int Id { get; set; }
         public DateTime Entry_Date { get; set; }
         public DateTime Assignment_Date { get; set; }
-        public byte[]? Technical_Test { get; set; }
         public string? Description { get; set; }
         [DefaultValue("false")]
         public bool IsAccepted { get; set; }
         [ForeignKey("Id_Candidate")]
-        public int? Id_Candidate { get; set; }
         public virtual CandidateModel? Candidate { get; set; }
         [ForeignKey("id_Oferta")]
-        public int? Id_Oferta { get; set; }
         public virtual OfferModel? Offer { get; set; }
 
 
@@ -34,10 +31,22 @@ namespace IGapi.Models
                 Assignment_Date = Assignment_Date,
                 Description= Description,
                 IsAccepted = IsAccepted,
-                Id_Candidate = Id_Candidate,
-                Id_Oferta= Id_Oferta,
-                Candidate=Candidate.ParseToDto(),
-                Offer=Offer.ParseToDto(),
+                Candidate=Candidate != null ? Candidate.ParseToDto() : null,
+                Offer=Offer != null ? Offer.ParseToDto() : null
+            };
+        }
+        public CreateOffer_ApplicationDto ParseToCreateOfferApplication()
+        {
+            return new CreateOffer_ApplicationDto
+            {
+                Id = Id,
+                Entry_Date = Entry_Date,
+                Assignment_Date = Assignment_Date,
+                Description= Description,
+                IsAccepted = IsAccepted,
+                Candidate_id = Candidate != null ? Candidate.Id : null,
+                Offer_id = Offer.Id
+
             };
         }
     }

@@ -156,3 +156,9 @@ C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Web.Http.dll
 C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\System.Web.Http.Cors.dll
 C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Antonio J\source\repos\IGapi\IGapi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\System.Web.Cors.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\System.Web.Http.Cors.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Antonio J\Source\Repos\IG_RRHH\IGapi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
