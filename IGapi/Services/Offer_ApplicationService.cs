@@ -72,5 +72,23 @@ namespace IGapi.Services
             return false;
 
         }
+        public bool Insert(CreateOffer_ApplicationDto offer_Application, OfferDto offer)
+        {
+            if (offer_Application != null)
+            {
+                var aux = new Offer_ApplicationModel()
+                {
+                    Assignment_Date = offer_Application.Assignment_Date,
+                    Description = offer_Application.Description,
+                    Entry_Date = offer_Application.Entry_Date,
+                    IsAccepted = offer_Application.IsAccepted,
+                    Candidate = candidateRepository.GetbyId((int)offer_Application.Candidate_id),
+                    Offer = offer.ParseToModel()
+                };
+                return offer_applicationRepo.Insert(aux);
+            }
+            return false;
+
+        }
     }
 }

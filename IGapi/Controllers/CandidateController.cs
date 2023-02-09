@@ -39,9 +39,7 @@ namespace IGapi.Controllers
             {
                 for(int i=0; i<candidate.Offerings.Count; i++)
                 {
-                    //candidate.Offerings[i].Candidate_id = candidate.Id;
                     offerServ.Insert(candidate.Offerings[i],candidate);
-
                 }
             }
             return candidateServ.Insert(candidate);

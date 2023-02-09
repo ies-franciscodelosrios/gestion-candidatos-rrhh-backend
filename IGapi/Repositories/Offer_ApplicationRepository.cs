@@ -18,9 +18,7 @@ namespace IGapi.Repositories
             var aux = new Offer_ApplicationModel();
             if (db.Orders.FirstOrDefault(c => c.Id == id) != null)
             {
-                db.Orders.Include(o => o.Candidate).FirstOrDefault(c => c.Id == id);
-                db.Orders.Include(o => o.Offer).FirstOrDefault(o => o.Id == id);
-                aux = db.Orders.FirstOrDefault(c => c.Id == id);
+                aux = db.Orders.Include(o => o.Candidate).Include(o => o.Offer).FirstOrDefault(c => c.Id == id);
             }
             return aux;
         }

@@ -55,7 +55,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins");
+                    b.ToTable("Admins", (string)null);
                 });
 
             modelBuilder.Entity("IGapi.Models.CandidateModel", b =>
@@ -91,7 +91,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Candidates");
+                    b.ToTable("Candidates", (string)null);
                 });
 
             modelBuilder.Entity("IGapi.Models.OfferModel", b =>
@@ -129,7 +129,7 @@ namespace IGapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OfertasdeTrabajo");
+                    b.ToTable("OfertasdeTrabajo", (string)null);
                 });
 
             modelBuilder.Entity("IGapi.Models.Offer_ApplicationModel", b =>
@@ -164,7 +164,7 @@ namespace IGapi.Migrations
 
                     b.HasIndex("id_Oferta");
 
-                    b.ToTable("Offer_Application");
+                    b.ToTable("Offer_Application", (string)null);
                 });
 
             modelBuilder.Entity("IGapi.Models.Offer_ApplicationModel", b =>

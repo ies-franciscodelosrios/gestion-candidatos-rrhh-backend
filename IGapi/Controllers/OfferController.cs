@@ -10,10 +10,12 @@ namespace IGapi.Controllers
     public class OfferController
     {
         private readonly OfferService offerService;
+        private readonly Offer_ApplicationService offerApplicationService;
 
-        public OfferController (OfferService offerService)
+        public OfferController (OfferService offerService, Offer_ApplicationService offerApplicationService)
         {
             this.offerService = offerService;
+            this.offerApplicationService = offerApplicationService;
         }
 
         [HttpGet("GetAll")]
@@ -31,6 +33,13 @@ namespace IGapi.Controllers
         [HttpPost("Insert")]
         public bool Insert([FromBody]OfferDto offer)
         {
+            if (offer.Offerings != null)
+            {
+                for (int i = 0; i < offer.Offerings.Count; i++)
+                {
+                    offerApplicationService.Insert(offer.Offerings[i], offer);
+                }
+            }
             return offerService.Insert(offer);
         }
 

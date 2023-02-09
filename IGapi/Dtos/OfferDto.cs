@@ -19,6 +19,7 @@ namespace IGapi.Dtos
         public DateTime Close_Date { get; set; }
         [DefaultValue("false")]
         public bool IsOpen { get; set; }
+        public List<CreateOffer_ApplicationDto>? Offerings { get; set; }
 
         public OfferModel ParseToModel() 
         {
