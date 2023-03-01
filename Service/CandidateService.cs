@@ -5,31 +5,31 @@ namespace IGApi.Service
 {
     public class CandidateService
     {
-        private readonly CandidateRepository repository;
+        private readonly Repository<CandidateModel> _repository;
 
-        public CandidateService(CandidateRepository repository)
+        public CandidateService(Repository<CandidateModel> repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
-        public List<CandidateModel> GetAll() 
+        public async Task<List<CandidateModel>> GetAll() 
         {
-            return repository.GetAll();
+            return await _repository.GetAll();
         }
 
-        public CandidateModel Get(int id)
+        public async Task<CandidateModel> Get(int id)
         {
-            return repository.Get(id);
+           return await this._repository.Get(id);
         }
 
-        public bool Insert(CandidateModel candidate)
+        public async Task<bool> Insert(CandidateModel candidate)
         {
-            return repository.Insert(candidate);
+            return await _repository.Insert(candidate);
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            return repository.Delete(id);
+            return await _repository.Delete(id);
         }
     }
 }

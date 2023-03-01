@@ -9,7 +9,7 @@ namespace IGApi
         {
         }
 
-        public DbSet<CandidateModel> Candidates { get; set; }
-        public DbSet<RolModel> Rol { get; set; }
+        //public DbSet<CandidateModel> Candidates { get; set; }
+        //public DbSet<RolModel> Rol { get; set; }
     }
 }

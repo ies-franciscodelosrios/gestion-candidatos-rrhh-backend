@@ -5,31 +5,31 @@ namespace IGApi.Service
 {
     public class RolService
     {
-        private readonly RolRepository rolRepository;
+        private readonly Repository<RolModel> _repository;
 
-        public RolService(RolRepository rolRepository)
+        public RolService(Repository<RolModel> rolRepository)
         {
-            this.rolRepository = rolRepository;
+            this._repository = rolRepository;
         }
 
-        public List<RolModel> GetAll()
+        public Task<List<RolModel>> GetAll()
         {
-            return this.rolRepository.GetAll();
+            return this._repository.GetAll();
         }
 
-        public RolModel Get(int id)
+        public Task<RolModel> Get(int id)
         {
-            return this.rolRepository.Get(id);
+            return this._repository.Get(id);
         }
 
-        public bool Insert(RolModel model)
+        public Task<bool> Insert(RolModel model)
         {
-            return this.rolRepository.Insert(model);
+            return this._repository.Insert(model);
         }
 
-        public bool Delete(int id)
+        public Task<bool> Delete(int id)
         {
-            return this.rolRepository.Delete(id);
+            return this._repository.Delete(id);
         }
     }
 }
