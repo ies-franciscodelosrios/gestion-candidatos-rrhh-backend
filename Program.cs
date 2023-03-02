@@ -12,10 +12,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 
-builder.Services.AddScoped<CandidateRepository>();
-builder.Services.AddScoped<RolRepository>();
 builder.Services.AddScoped<CandidateService>();
 builder.Services.AddScoped<RolService>();
+builder.Services.AddScoped(typeof(Repository<>));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

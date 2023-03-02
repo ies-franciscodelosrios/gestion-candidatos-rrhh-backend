@@ -22,6 +22,7 @@ namespace IGApi.Models
         public DateTime HiringDate { get; set; }
         public DateTime FirstContactDate { get; set; }
         [ForeignKey("Rol")]
-        public RolModel Rol { get; set; }
+        public RolModel? Rol { get; set; }
     }
+
 }

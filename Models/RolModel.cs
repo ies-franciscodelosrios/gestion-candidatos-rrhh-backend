@@ -19,6 +19,6 @@ namespace IGApi.Models
         public int Vacancies { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime CloseDate { get; set; }
-        public List<CandidateModel> Candidates { get; set; }
+        public virtual List<CandidateModel>? Candidates { get; set; }
     }
 }

@@ -16,25 +16,25 @@ namespace IGApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public List<CandidateModel> GetAll() 
+        public Task<List<CandidateModel>> GetAll() 
         {
             return _candidateService.GetAll();
         }
 
         [HttpGet("GetById/{id}")]
-        public CandidateModel Get(int id)
+        public Task<CandidateModel> Get(int id)
         {
             return _candidateService.Get(id);
         }
 
         [HttpDelete("Delete/{id}")]
-        public bool Delete(int id)
+        public Task<bool> Delete(int id)
         {
             return _candidateService.Delete(id);
         }
 
         [HttpPost("Insert")]
-        public bool Insert([FromBody] CandidateModel candidate)
+        public Task<bool> Insert([FromBody] CandidateModel candidate)
         {
             return _candidateService.Insert(candidate);
         }
