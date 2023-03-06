@@ -49,5 +49,10 @@ namespace IGApi.Repository
             }
             return false;
         }
+
+        public async Task<T> Update(T x)
+        {
+            DbSet.Update(x);
+        }
     }
 }

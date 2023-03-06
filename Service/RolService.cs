@@ -31,5 +31,10 @@ namespace IGApi.Service
         {
             return this._repository.Delete(id);
         }
+
+        public async Task<RolModel> Update(RolModel rol)
+        {
+            return await this._repository.Update(rol);
+        } 
     }
 }

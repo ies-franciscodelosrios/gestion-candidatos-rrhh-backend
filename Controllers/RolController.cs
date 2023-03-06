@@ -38,5 +38,11 @@ namespace IGApi.Controllers
         {
             return _rolService.Insert(rol);
         }
+
+        [HttpPut("Update")]
+        public async Task<RolModel> Update([FromBody] RolModel rol)
+        {
+            return await _rolService.Update(rol);
+        }
     }
 }

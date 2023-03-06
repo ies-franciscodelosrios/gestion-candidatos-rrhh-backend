@@ -38,5 +38,10 @@ namespace IGApi.Controllers
         {
             return _candidateService.Insert(candidate);
         }
+
+        public Task<CandidateModel> Update([FromBody]CandidateModel candidate) 
+        {
+            return _candidateService.Update(candidate);
+        }
     }
 }

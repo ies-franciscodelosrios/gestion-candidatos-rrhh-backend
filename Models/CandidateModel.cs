@@ -1,9 +1,12 @@
-﻿using IGApi.Enums;
+﻿using IGApi.Dtos;
+using IGApi.Enums;
+using IGApi.NewFolder1;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IGApi.Models
 {
+    [Table("Candidato")]
     public class CandidateModel
     {
         [Key]
@@ -21,8 +24,32 @@ namespace IGApi.Models
         public DateTime InterviewDate { get; set; }
         public DateTime HiringDate { get; set; }
         public DateTime FirstContactDate { get; set; }
-        [ForeignKey("Rol")]
+        [ForeignKey("Rolid")]
         public RolModel? Rol { get; set; }
+
+        public CandidateDto ParseToDto(bool includes = false)
+        {
+            RolDto roldto = null;
+            if (includes && Rol != null)
+            {
+                 roldto = Rol.ParseToDto();
+            }
+            return new CandidateDto
+            {
+                Id = Id,
+                Name = Name,
+                Surname = Surname,
+                Description = Description,
+                RejectionReason = RejectionReason,
+                Status = Status,
+                Contact = Contact,
+                CvDate = CvDate,
+                InterviewDate = InterviewDate,
+                HiringDate = HiringDate,
+                FirstContactDate = FirstContactDate,
+                Rol = roldto
+            };
+        }
     }
 
 }

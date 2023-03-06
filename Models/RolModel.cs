@@ -1,9 +1,12 @@
 ﻿using IGApi.Enums;
+using IGApi.Dtos;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using IGApi.NewFolder1;
 
 namespace IGApi.Models
 {
+    [Table("Rol")]
     public class RolModel
     {
         [Key]
@@ -20,5 +23,30 @@ namespace IGApi.Models
         public DateTime CreationDate { get; set; }
         public DateTime CloseDate { get; set; }
         public virtual List<CandidateModel>? Candidates { get; set; }
+
+        public RolDto ParseToDto(bool includes = false)
+        {
+            var candidates = new List<CandidateDto>();
+            if (includes && this.Candidates != null)
+            {
+                candidates = this.Candidates.Select(x => x.ParseToDto()).ToList();
+            }
+            return new RolDto
+            {
+                Id = Id,
+                Project = Project,
+                Area = Area,
+                Rol = Rol,
+                SubRol = SubRol,
+                Localization = Localization,
+                Description = Description,
+                Status = Status,
+                Vacancies = Vacancies,
+                CreationDate = CreationDate,
+                CloseDate = CloseDate,
+                Candidates = candidates
+            };
+        }
     }
+    
 }

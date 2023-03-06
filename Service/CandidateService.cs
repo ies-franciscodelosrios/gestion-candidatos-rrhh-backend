@@ -31,5 +31,10 @@ namespace IGApi.Service
         {
             return await _repository.Delete(id);
         }
+
+        public async Task<CandidateModel> Update(CandidateModel candidate)
+        {
+            return await _repository.Update(candidate);
+        }
     }
 }
