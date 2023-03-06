@@ -39,7 +39,8 @@ namespace IGApi.Controllers
             return _candidateService.Insert(candidate);
         }
 
-        public Task<CandidateModel> Update([FromBody]CandidateModel candidate) 
+        [HttpPut("Update")]
+        public Task<bool> Update([FromBody]CandidateModel candidate) 
         {
             return _candidateService.Update(candidate);
         }

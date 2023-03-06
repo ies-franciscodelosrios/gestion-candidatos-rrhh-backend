@@ -5,9 +5,9 @@ namespace IGApi.Service
 {
     public class RolService
     {
-        private readonly Repository<RolModel> _repository;
+        private readonly RolRepository _repository;
 
-        public RolService(Repository<RolModel> rolRepository)
+        public RolService(RolRepository rolRepository)
         {
             this._repository = rolRepository;
         }
@@ -32,7 +32,7 @@ namespace IGApi.Service
             return this._repository.Delete(id);
         }
 
-        public async Task<RolModel> Update(RolModel rol)
+        public async Task<bool> Update(RolModel rol)
         {
             return await this._repository.Update(rol);
         } 

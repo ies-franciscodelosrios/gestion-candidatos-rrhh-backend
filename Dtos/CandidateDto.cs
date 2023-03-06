@@ -31,11 +31,20 @@ namespace IGApi.NewFolder1
             {
                 rolModel = Rol.ParseToModel();
             }
-            return new RolModel
+            return new CandidateModel
             {
                 Id = Id,
                 Name = Name,
-
+                Surname= Surname,
+                Description = Description,
+                RejectionReason= RejectionReason,
+                Contact = Contact,
+                CvDate= CvDate,
+                InterviewDate = InterviewDate,
+                HiringDate = HiringDate,
+                FirstContactDate = FirstContactDate,
+                Status = Status,
+                Rol = rolModel,
             };
     }
     }

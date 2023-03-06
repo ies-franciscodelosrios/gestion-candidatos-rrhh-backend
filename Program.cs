@@ -15,6 +15,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlSer
 builder.Services.AddScoped<CandidateService>();
 builder.Services.AddScoped<RolService>();
 builder.Services.AddScoped(typeof(Repository<>));
+builder.Services.AddScoped<RolRepository>();
+builder.Services.AddScoped<CandidateRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

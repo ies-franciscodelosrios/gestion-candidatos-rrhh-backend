@@ -40,7 +40,7 @@ namespace IGApi.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<RolModel> Update([FromBody] RolModel rol)
+        public async Task<bool> Update([FromBody] RolModel rol)
         {
             return await _rolService.Update(rol);
         }
