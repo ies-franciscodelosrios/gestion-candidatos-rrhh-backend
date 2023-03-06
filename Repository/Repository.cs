@@ -50,9 +50,11 @@ namespace IGApi.Repository
             return false;
         }
 
-        public async Task<T> Update(T x)
+        public async Task<bool> Update(T x)
         {
             DbSet.Update(x);
+            this._dbContext.SaveChanges();
+            return true;
         }
     }
 }
