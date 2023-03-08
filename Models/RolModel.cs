@@ -20,7 +20,9 @@ namespace IGApi.Models
         public string Description { get; set; }
         public RolStatusEnum Status { get; set; }
         public int Vacancies { get; set; }
+        [DataType(DataType.Date)]
         public DateTime CreationDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTime CloseDate { get; set; }
         public virtual List<CandidateModel>? Candidates { get; set; }
 

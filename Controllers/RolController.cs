@@ -36,6 +36,7 @@ namespace IGApi.Controllers
         [HttpPost("Insert")]
         public Task<bool> Insert([FromBody] RolModel rol)
         {
+            Console.WriteLine(rol.CreationDate);
             return _rolService.Insert(rol);
         }
 
