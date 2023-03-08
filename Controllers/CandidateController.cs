@@ -1,4 +1,5 @@
 ﻿using IGApi.Models;
+using IGApi.NewFolder1;
 using IGApi.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +17,13 @@ namespace IGApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public Task<List<CandidateModel>> GetAll() 
+        public Task<List<CandidateDto>> GetAll() 
         {
             return _candidateService.GetAll();
         }
 
         [HttpGet("GetById/{id}")]
-        public Task<CandidateModel> Get(int id)
+        public Task<CandidateDto> Get(int id)
         {
             return _candidateService.Get(id);
         }

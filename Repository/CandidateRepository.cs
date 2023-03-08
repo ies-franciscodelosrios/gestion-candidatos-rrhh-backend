@@ -14,12 +14,12 @@ namespace IGApi.Repository
 
         public async Task<CandidateModel> Get(int id)
         {
-            return await this._repository.AsQueryable().Include(x => x.Rol).FirstAsync(x => x.Id == id);
+            return await _repository.AsQueryable().Include(x => x.Rol).FirstAsync(x => x.Id == id);
         }
 
         public async Task<List<CandidateModel>> GetAll()
         {
-            return await _repository.GetAll();
+            return _repository.AsQueryable().Include(x => x.Rol).ToList();
         }
 
         public async Task<bool> Insert(CandidateModel candidate)

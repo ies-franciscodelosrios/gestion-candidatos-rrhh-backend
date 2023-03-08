@@ -1,4 +1,5 @@
-﻿using IGApi.Models;
+﻿using IGApi.Dtos;
+using IGApi.Models;
 using IGApi.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +17,13 @@ namespace IGApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public Task<List<RolModel>> GetAll()
+        public Task<List<RolDto>> GetAll()
         {
             return _rolService.GetAll();
         }
 
         [HttpGet("GetById/{id}")]
-        public Task<RolModel> Get(int id)
+        public Task<RolDto> Get(int id)
         {
             return _rolService.Get(id);
         }
