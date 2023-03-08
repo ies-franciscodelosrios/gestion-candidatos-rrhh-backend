@@ -1,4 +1,5 @@
 ﻿using IGApi.Models;
+using IGApi.Dtos;
 using IGApi.Repository;
 
 namespace IGApi.Service
@@ -12,24 +13,24 @@ namespace IGApi.Service
             this._repository = rolRepository;
         }
 
-        public Task<List<RolModel>> GetAll()
+        public async Task<List<RolDto>> GetAll()
         {
-            return this._repository.GetAll();
+            return (await this._repository.GetAll()).Select(x => x.ParseToDto(true)).ToList();
         }
 
-        public Task<RolModel> Get(int id)
+        public async Task<RolDto> Get(int id)
         {
-            return this._repository.Get(id);
+            return (await _repository.Get(id)).ParseToDto(true);
         }
 
-        public Task<bool> Insert(RolModel model)
+        public async Task<bool> Insert(RolModel model)
         {
-            return this._repository.Insert(model);
+            return await _repository.Insert(model);
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            return this._repository.Delete(id);
+            return await _repository.Delete(id);
         }
 
         public async Task<bool> Update(RolModel rol)

@@ -1,5 +1,7 @@
 ﻿using IGApi.Models;
+using IGApi.Dtos;
 using IGApi.Repository;
+using IGApi.NewFolder1;
 
 namespace IGApi.Service
 {
@@ -12,14 +14,14 @@ namespace IGApi.Service
             this._repository = repository;
         }
 
-        public async Task<List<CandidateModel>> GetAll() 
+        public async Task<List<CandidateDto>> GetAll() 
         {
-            return await _repository.GetAll();
+            return (await _repository.GetAll()).Select(x => x.ParseToDto(true)).ToList();
         }
 
-        public async Task<CandidateModel> Get(int id)
+        public async Task<CandidateDto> Get(int id)
         {
-           return await this._repository.Get(id);
+           return (await this._repository.Get(id)).ParseToDto(true);
         }
 
         public async Task<bool> Insert(CandidateModel candidate)

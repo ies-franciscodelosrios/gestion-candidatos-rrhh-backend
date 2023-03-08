@@ -24,8 +24,9 @@ namespace IGApi.Models
         public DateTime InterviewDate { get; set; }
         public DateTime HiringDate { get; set; }
         public DateTime FirstContactDate { get; set; }
-        [ForeignKey("Rolid")]
-        public RolModel? Rol { get; set; }
+        [ForeignKey("Rol")]
+        public int Rolid { get; set; }
+        public virtual RolModel? Rol { get; set; }
 
         public CandidateDto ParseToDto(bool includes = false)
         {

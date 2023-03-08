@@ -21,8 +21,9 @@ namespace IGApi.NewFolder1
         public DateTime InterviewDate { get; set; }
         public DateTime HiringDate { get; set; }
         public DateTime FirstContactDate { get; set; }
-        [ForeignKey("Rolid")]
-        public RolDto? Rol { get; set; }
+        [ForeignKey("Rol")]
+        public int Rolid { get; set; }
+        public virtual RolDto? Rol { get; set; }
 
         public CandidateModel ParseToModel()
         {
@@ -44,6 +45,7 @@ namespace IGApi.NewFolder1
                 HiringDate = HiringDate,
                 FirstContactDate = FirstContactDate,
                 Status = Status,
+                Rolid = Rolid,
                 Rol = rolModel,
             };
     }
